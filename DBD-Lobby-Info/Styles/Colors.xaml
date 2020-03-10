@@ -1,0 +1,32 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:DBD_Lobby_Info">
+
+    <Color x:Key="WordDarkRed">#cc0000</Color>
+    <SolidColorBrush x:Key="WordDarkRedBrush" Color="{StaticResource WordDarkRed}" />
+
+    <Color x:Key="WordBlack">#000000</Color>
+    <SolidColorBrush x:Key="WordBlackBrush" Color="{StaticResource WordBlack}" />
+
+    <Color x:Key="WordWhite">#ffffff</Color>
+    <SolidColorBrush x:Key="WordWhiteBrush" Color="{StaticResource WordWhite}" />
+
+    <Color x:Key="WordGray">#eeeeee</Color>
+    <SolidColorBrush x:Key="WordGrayBrush" Color="{StaticResource WordGray}" />
+
+    <Color x:Key="WindowTitle">#191919</Color>
+    <SolidColorBrush x:Key="WindowTitleBrush" Color="{StaticResource WindowTitle}" />
+
+    <Color x:Key="WindowColor">#222222</Color>
+    <SolidColorBrush x:Key="WindowColorBrush" Color="{StaticResource WindowColor}" />
+
+    <Color x:Key="WindowTitleHover">#262626</Color>
+    <SolidColorBrush x:Key="WindowTitleHoverBrush" Color="{StaticResource WindowTitleHover}" />
+
+    <Color x:Key="WindowTitleCloseHover">#F04747</Color>
+    <SolidColorBrush x:Key="WindowTitleCloseHoverBrush" Color="{StaticResource WindowTitleCloseHover}" />
+
+    <Color x:Key="ForegroundVeryDark">#000000</Color>
+    <SolidColorBrush x:Key="ForegroundVeryDarkBrush" Color="{StaticResource ForegroundVeryDark}" />
+
+</ResourceDictionary>

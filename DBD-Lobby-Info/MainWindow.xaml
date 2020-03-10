@@ -1,0 +1,92 @@
+﻿<Window x:Class="DBD_Lobby_Info.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DBD_Lobby_Info"
+        xmlns:converters="clr-namespace:DBD_Lobby_Info.Converters"
+        WindowStartupLocation="CenterOwner"
+        mc:Ignorable="d" Activated="AppWindow_Activated" Deactivated="AppWindow_Deactivated"
+        Title="DBD Lobby Info" Height="320" Width="400" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <Style TargetType="Image">
+            <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality" />
+        </Style>
+        <converters:UriToImageConverter x:Key="ImageConverter"/>
+    </Window.Resources>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            ResizeBorderThickness="{Binding ResizeBorderThickness}"
+            CaptionHeight="{Binding TitleHeight}"
+            CornerRadius="0"
+            GlassFrameThickness="0"
+        />
+    </WindowChrome.WindowChrome>
+
+    <Grid Margin="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                
+            </Grid>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center" Foreground="{StaticResource WordDarkRedBrush}"> 
+                <Bold Foreground="{StaticResource WordDarkRedBrush}">Killer:</Bold>
+                <Run Text="{Binding Path=Killer}" />
+                </TextBlock>
+
+                <Grid Grid.Row="1" Margin="0,20,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Margin="0,0,0,0" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="100" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0" Stretch="Fill" Source="{Binding Path=Icon1, Converter={StaticResource ImageConverter}}" />
+                        <Image Grid.Column="1" Stretch="Fill" Source="{Binding Path=Icon2, Converter={StaticResource ImageConverter}}" />
+                        <Image Grid.Column="2" Stretch="Fill" Source="{Binding Path=Icon3, Converter={StaticResource ImageConverter}}" />
+                    </Grid>
+
+                    <StackPanel Grid.Row="1" HorizontalAlignment="Center" Width="340" Margin="0,20,0,0">
+                        <TextBlock TextWrapping="WrapWithOverflow">
+                            <Bold>Rank:</Bold>
+                            <Run Text="{Binding Path=Rank}" Foreground="{Binding Path=RankColor}" x:Name="Rank" />
+                        </TextBlock>
+                        <TextBlock TextWrapping="WrapWithOverflow">
+                            <Bold>Steam:</Bold>
+                            <Run Text="{Binding Path=Username}" />
+                        </TextBlock>
+                        <TextBlock TextWrapping="WrapWithOverflow">
+                            <Bold>Steam ID:</Bold>
+                            <Run Text="{Binding Path=SteamID}" />
+                        </TextBlock>
+                        <TextBlock TextWrapping="WrapWithOverflow">
+                            <Bold>Cloud ID:</Bold>
+                            <Run Text="{Binding Path=CloudID}" />
+                        </TextBlock>
+                        <TextBlock TextWrapping="WrapWithOverflow">
+                            <Bold>Match ID:</Bold>
+                            <Run Text="{Binding Path=MatchID}" />
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</Window>
