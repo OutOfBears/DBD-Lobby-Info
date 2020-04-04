@@ -39,7 +39,7 @@ namespace DBD_Magic.Responses
         public string Status { get; set; }
 
         [JsonProperty("creator")]
-        public Guid Creator { get; set; }
+        public string Creator { get; set; }
 
         [JsonProperty("customData")]
         public CustomData CustomData { get; set; }

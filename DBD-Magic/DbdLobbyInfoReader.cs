@@ -152,21 +152,32 @@ namespace DBD_Magic
         }
 
         // such a hacky way
-        private async Task<FriendsResponse> GetCloudIdInfo(string cloudId)
+        private async Task<FriendsResponse> GetCloudIdInfo(string cloudId, int pickIdx = 0, FriendsResponse[] friends = null)
         {
-            var friends = await GetFriends(cloudId);
+            if(friends == null)
+                friends = await GetFriends(cloudId);
+            
             if(friends != null && friends.Length > 0)
             {
-                var friend = friends.FirstOrDefault(x => x.Status == Status.Confirmed);
-                if (friend != null && !friend.Equals(default)) {
-                    var friendFriends = await GetFriends(friend.UserId.ToString());
-                    if (friendFriends != null && friendFriends.Length > 0)
+                var friendList = friends.Where(x => x.Status == Status.Confirmed)
+                    .ToArray();
+
+                if(friends.Length > pickIdx)
+                {
+                    var friend = friends[pickIdx];
+                    if (friend != null && !friend.Equals(default))
                     {
-                        var user = friendFriends.FirstOrDefault(x => x.UserId.ToString() == cloudId);
-                        if (user != null && !user.Equals(default))
+                        var friendFriends = await GetFriends(friend.FriendId.ToString());
+                        if (friendFriends != null && friendFriends.Length > 0)
                         {
-                            return user;
+                            var user = friendFriends.FirstOrDefault(x => x.FriendId.ToString() == cloudId);
+                            if (user != null && !user.Equals(default))
+                            {
+                                return user;
+                            }
                         }
+
+                        return await GetCloudIdInfo(cloudId, pickIdx + 1, friends);
                     }
                 }
             }

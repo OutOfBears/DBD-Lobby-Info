@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using DBD_Magic;
 using DBD_Magic.Responses;
 using System.IO;
+using System.Diagnostics;
 
 namespace DBD_Lobby_Info
 {
@@ -169,5 +170,20 @@ namespace DBD_Lobby_Info
             (DataContext as WindowViewModel).DimmableOverlayVisible = false;
         }
 
+        private void Run_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var viewContext = (DataContext as WindowViewModel);
+            if (!string.IsNullOrWhiteSpace(viewContext.SteamID) &&
+                viewContext.SteamID != "Unknown")
+            {
+                var ps = new ProcessStartInfo($"https://steamcommunity.com/profiles/{viewContext.SteamID}")
+                {
+                    UseShellExecute = true,
+                    Verb = "open"
+                };
+
+                Process.Start(ps);
+            }
+        }
     }
 }

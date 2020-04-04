@@ -73,7 +73,10 @@
                         </TextBlock>
                         <TextBlock TextWrapping="WrapWithOverflow">
                             <Bold>Steam ID:</Bold>
-                            <Run Text="{Binding Path=SteamID}" />
+                            <Run Text="{Binding Path=SteamID}" 
+                                 MouseLeftButtonDown="Run_MouseLeftButtonDown"
+                                 Cursor="Hand"
+                                />
                         </TextBlock>
                         <TextBlock TextWrapping="WrapWithOverflow">
                             <Bold>Cloud ID:</Bold>
