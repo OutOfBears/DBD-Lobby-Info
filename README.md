@@ -1,6 +1,11 @@
 # DBD-Lobby-Info
 Gets the killer information from the lobby
 
+# Screenshots
+![ss#1](https://i.imgur.com/HOPTGIn.png)
+![ss#2](https://i.imgur.com/Hz57lPu.png)
+![ss#3](https://i.imgur.com/ugDy50u.png)
+
 # Requirements
 - .NET Core 3.1
 
